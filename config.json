@@ -1,0 +1,23 @@
+{
+  "server_config": {
+    "name": "blender-mcp-server",
+    "version": "1.0.0",
+    "description": "MCP server for 3D model generation using Blender",
+    "timeout": 30
+  },
+  "blender_config": {
+    "executable_path": null,
+    "background_mode": true,
+    "factory_startup": true,
+    "temp_directory": "./temp"
+  },
+  "export_config": {
+    "default_format": "obj",
+    "supported_formats": ["obj", "fbx", "stl", "ply"],
+    "default_export_directory": "./exports"
+  },
+  "logging_config": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
+}
