@@ -10,50 +10,30 @@
 
 ### 1. Install Python Dependencies
 
-Open a terminal in the BlenderMCP directory and run:
-
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Test the Server
+### 2. Configure MCP Client
 
-Test that the server starts correctly:
-
-```bash
-python main.py
-```
-
-The server should start without errors. Press Ctrl+C to stop.
-
-### 3. Configure MCP Client
-
-#### Configuration:
-
-1. Add the server to your MCP client's configuration file:
+Add the server to your MCP client's configuration (see `mcp_config_example.json`):
 
 ```json
 {
   "mcpServers": {
     "blender": {
       "command": "python", 
-      "args": ["path/to/BlenderMCP/main.py"],
-      "env": {
-        "PYTHONPATH": "path/to/BlenderMCP"
-      }
+      "args": ["path/to/BlenderMCP/main.py"]
     }
   }
 }
 ```
 
-2. Refer to your MCP client's documentation for specific configuration instructions.
+### 3. Verify Installation
 
-### 4. Verify Installation
-
-Restart your MCP client and test with a simple command:
-
+Restart your MCP client and test with:
 ```
-"Create a red cube and a blue sphere next to each other"
+"Create a cube"
 ```
 
 ## Troubleshooting
@@ -78,58 +58,11 @@ Restart your MCP client and test with a simple command:
 
 ### Custom Blender Path
 
-If Blender is not in a standard location, modify `blender_integration.py`:
-
-```python
-# Line ~24, replace with your Blender path
-blender_manager = BlenderManager("C:\\path\\to\\your\\blender.exe")
-```
-
-## Usage Examples
-
-Once configured, you can use natural language commands:
-
-**Basic Objects:**
-- "Create a cube and sphere"
-- "Make a red cylinder with glass material"
-
-**Advanced Modeling:**
-- "Create a house shape using boolean operations"
-- "Make a gear using screw modifier on a tooth profile" 
-- "Design a smooth organic form using subdivision surfaces"
-
-**Materials & Textures:**
-- "Apply a metal material to the cube"
-- "Add noise texture to create a rocky surface"
-- "Create a glowing emission material"
-
-**Modifiers:**
-- "Use array modifier to create a row of pillars"
-- "Add mirror modifier for symmetrical design"
-- "Apply wave modifier for organic distortion"
-
-## File Structure
-
-```
-BlenderMCP/
-├── main.py                 # Server entry point
-├── server.py              # MCP server with all tools
-├── blender_integration.py # Blender API integration
-├── advanced_tools.py      # Advanced mesh editing
-├── boolean_operations.py  # Boolean operations
-├── subdivide_smooth.py    # Subdivision & smoothing
-├── materials.py           # Materials & textures  
-├── modifiers.py           # Modifier system
-├── requirements.txt       # Python dependencies
-├── config.json           # Server configuration
-├── config.json           # MCP server configuration
-└── README.md             # Documentation
-```
+If Blender is not in a standard location, modify `blender_integration.py` to specify custom path.
 
 ## Support
 
-For issues or questions:
-1. Check the console output for error messages
-2. Ensure Blender can run from command line: `blender --version`
-3. Test Python imports: `python -c "from mcp.server.fastmcp import FastMCP"`
-4. Verify file paths are correct in the configuration
+For issues:
+1. Check console output for errors
+2. Ensure Blender runs from command line: `blender --version`
+3. Verify file paths in configuration
