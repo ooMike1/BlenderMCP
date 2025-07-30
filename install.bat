@@ -23,33 +23,18 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo Step 3: Adding to Claude MCP...
+echo Step 3: MCP Configuration...
 echo.
-
-REM Get the current directory
-set "CURRENT_DIR=%CD%"
-
-echo Running: claude mcp add file:///%CURRENT_DIR:\=/%/
-claude mcp add file:///%CURRENT_DIR:\=/%/
-
-if %errorlevel% neq 0 (
-    echo.
-    echo WARNING: Could not automatically add to Claude MCP.
-    echo Please run manually:
-    echo   claude mcp add file:///%CURRENT_DIR:\=/%/
-    echo.
-    echo Or add manually to your Claude config:
-    echo   Location: %%APPDATA%%\Claude\claude_desktop_config.json
-    echo   See claude_config_example.json for the configuration format
-) else (
-    echo Successfully added to Claude MCP!
-)
+echo Please configure your MCP client to use this server.
+echo Server location: %CD%
+echo.
+echo Refer to your MCP client documentation for configuration instructions.
 
 echo.
 echo Step 4: Installation complete!
 echo.
 echo Next steps:
-echo 1. Restart Claude Desktop
+echo 1. Restart your MCP client
 echo 2. Test with: "Create a red cube in Blender"
 echo.
 echo See setup_instructions.md for detailed setup guide.

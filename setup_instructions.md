@@ -4,7 +4,7 @@
 
 1. **Python 3.8+** installed and accessible via `python` command
 2. **Blender 3.6+** installed and accessible (will auto-detect common locations)
-3. **Claude Desktop** or **Claude Code** installed
+3. **MCP-compatible client** installed
 
 ## Installation Steps
 
@@ -26,29 +26,11 @@ python main.py
 
 The server should start without errors. Press Ctrl+C to stop.
 
-### 3. Configure Claude
+### 3. Configure MCP Client
 
-#### For Claude Desktop:
+#### Configuration:
 
-1. Open Claude Desktop settings
-2. Navigate to the MCP section
-3. Add a new server with the following configuration:
-
-```json
-{
-  "blender": {
-    "command": "python",
-    "args": ["path/to/BlenderMCP/main.py"],
-    "env": {
-      "PYTHONPATH": "path/to/BlenderMCP"
-    }
-  }
-}
-```
-
-#### For Claude Code (CLI):
-
-1. Add the server to your MCP configuration file (usually `~/.config/claude-code/mcp_servers.json`):
+1. Add the server to your MCP client's configuration file:
 
 ```json
 {
@@ -64,15 +46,11 @@ The server should start without errors. Press Ctrl+C to stop.
 }
 ```
 
-2. Or use the provided config file:
-
-```bash
-claude mcp install --config claude_config.json
-```
+2. Refer to your MCP client's documentation for specific configuration instructions.
 
 ### 4. Verify Installation
 
-Restart Claude and test with a simple command:
+Restart your MCP client and test with a simple command:
 
 ```
 "Create a red cube and a blue sphere next to each other"
@@ -144,7 +122,7 @@ BlenderMCP/
 ├── modifiers.py           # Modifier system
 ├── requirements.txt       # Python dependencies
 ├── config.json           # Server configuration
-├── claude_config.json    # Claude MCP configuration
+├── config.json           # MCP server configuration
 └── README.md             # Documentation
 ```
 

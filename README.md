@@ -31,13 +31,13 @@ cd BlenderMCP
 install.bat
 ```
 
-**macOS/Linux**: Install dependencies and add to Claude
+**macOS/Linux**: Install dependencies and configure MCP
 ```bash
 pip install -r requirements.txt
-claude mcp add file://$(pwd)/
+# Configure your MCP client with the server path
 ```
 
-3. Restart Claude Desktop
+3. Restart your MCP client
 
 ### Manual Installation
 
@@ -52,10 +52,10 @@ cd BlenderMCP
 pip install -r requirements.txt
 ```
 
-3. Add to Claude MCP:
+3. Configure your MCP client:
 ```bash
-# From the BlenderMCP directory
-claude mcp add file://$(pwd)/
+# Add the BlenderMCP server to your MCP client configuration
+# See your MCP client documentation for specific instructions
 ```
 
 4. Ensure Blender is installed and accessible:
@@ -94,9 +94,9 @@ The server will communicate via JSON-RPC over stdio, following the MCP specifica
 - `get_server_info()` - Get server capabilities and version info
 - `list_available_tools()` - List all available tool names
 
-### Example Usage with Claude
+### Example Usage
 
-Once configured in Claude, you can use natural language commands:
+Once configured in your MCP client, you can use natural language commands:
 
 ```
 "Create a red cube at position (2, 0, 0) and a blue sphere next to it"
@@ -114,14 +114,9 @@ If Blender is not in a standard location, you can specify the path by modifying 
 blender_manager = BlenderManager("/path/to/your/blender/executable")
 ```
 
-### Claude Configuration  
+### MCP Configuration  
 
-The installation process automatically configures Claude MCP. If you need to configure manually:
-
-**Configuration file location:**
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Linux: `~/.config/Claude/claude_desktop_config.json`
+The installation process attempts to configure your MCP client automatically. If you need to configure manually, refer to your MCP client's documentation for configuration file locations.
 
 **Manual configuration example:**
 ```json
@@ -150,7 +145,7 @@ The server consists of several key components:
 
 ### How It Works
 
-1. MCP tools receive parameters from Claude
+1. MCP tools receive parameters from the client
 2. Python scripts are generated with Blender API calls  
 3. Blender runs in background mode to execute scripts
 4. Results are parsed and returned to Claude
