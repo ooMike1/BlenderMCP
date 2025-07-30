@@ -18,7 +18,23 @@ A Model Context Protocol (MCP) server that provides 3D model generation capabili
 
 ## Installation
 
-### Quick Install (Recommended)
+### Quick Install for Claude Desktop (Windows)
+
+1. Clone this repository:
+```bash
+git clone <repository-url>
+cd BlenderMCP
+```
+
+2. Run the Claude-specific installer:
+```bash
+install_to_claude.bat
+```
+This will automatically configure BlenderMCP for Claude Desktop.
+
+3. Restart Claude Desktop
+
+### Quick Install (Other MCP Clients)
 
 1. Clone this repository:
 ```bash
@@ -116,6 +132,12 @@ blender_manager = BlenderManager("/path/to/your/blender/executable")
 
 ### MCP Configuration  
 
+#### Claude Desktop
+The `install_to_claude.bat` script automatically configures Claude Desktop. It creates or updates a `.mcp.json` file in your project directory.
+
+For more details, see `CLAUDE_INSTALL.md`.
+
+#### Other MCP Clients
 The installation process attempts to configure your MCP client automatically. If you need to configure manually, refer to your MCP client's documentation for configuration file locations.
 
 **Manual configuration example:**

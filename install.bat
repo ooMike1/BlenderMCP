@@ -34,8 +34,15 @@ echo.
 echo Step 4: Installation complete!
 echo.
 echo Next steps:
-echo 1. Restart your MCP client
-echo 2. Test with: "Create a red cube in Blender"
+echo.
+echo For Claude Desktop users:
+echo   Run install_to_claude.bat to automatically configure Claude
+echo.
+echo For other MCP clients:
+echo   1. Configure your MCP client to use this server
+echo   2. Server location: %CD%
+echo   3. Restart your MCP client
+echo   4. Test with: "Create a red cube in Blender"
 echo.
 echo See setup_instructions.md for detailed setup guide.
 echo.

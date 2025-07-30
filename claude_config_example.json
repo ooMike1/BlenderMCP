@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "blender": {
+      "command": "python",
+      "args": ["C:\\Users\\celig\\Desktop\\Claude\\BlenderMCP_New\\main.py"],
+      "env": {
+        "PYTHONPATH": "C:\\Users\\celig\\Desktop\\Claude\\BlenderMCP_New"
+      }
+    }
+  }
+}
