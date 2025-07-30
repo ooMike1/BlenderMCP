@@ -10,7 +10,7 @@ BlenderMCP enables programmatic control of Blender through MCP, allowing creatio
 
 1. Clone repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/ooMike1/BlenderMCP.git
 cd BlenderMCP
 ```
 
