@@ -4,6 +4,7 @@ Main entry point for the Blender MCP Server
 """
 import sys
 import logging
+import asyncio
 
 # Set up logging to go to stderr so it doesn't interfere with MCP stdio
 logging.basicConfig(
@@ -11,8 +12,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     stream=sys.stderr
 )
-
-from server import mcp
 
 def main():
     """Main entry point to run the MCP server."""
@@ -34,12 +33,9 @@ def main():
                 print(f"Configuration test failed: {e}")
                 sys.exit(1)
         
-        logger.info("Starting Blender MCP Server...")
-        logger.info("Available tools: Basic primitives, Boolean operations, Materials, Modifiers, and more")
-        logger.info("Server ready for MCP connections...")
-        
-        # Run the MCP server
-        mcp.run()
+        # Import and run the MCP server
+        from mcp_server import main as server_main
+        asyncio.run(server_main())
         
     except KeyboardInterrupt:
         logger.info("Server shutdown requested by user")

@@ -1,7 +1,9 @@
 """
 Blender MCP Server - Provides 3D model generation capabilities through Blender Python API
 """
-from mcp.server.fastmcp import FastMCP
+from mcp.server import Server
+from mcp.server.models import InitializationOptions
+from mcp.types import Tool, TextContent
 from typing import Any, Dict, List, Optional, Tuple
 import logging
 import os
@@ -16,10 +18,15 @@ from materials import *
 from modifiers import *
 
 # Configure logging to stderr to avoid interfering with stdio
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    stream=os.sys.stderr
+)
 logger = logging.getLogger(__name__)
 
 # Create MCP server instance
-mcp = FastMCP("blender-mcp-server")
+mcp = Server("blender-mcp-server")
 
 @mcp.tool()
 def get_server_info() -> Dict[str, Any]:
